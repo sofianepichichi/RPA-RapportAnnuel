@@ -7,7 +7,6 @@
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
- xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing"
  xmlns:ui="http://schemas.uipath.com/workflow/activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
@@ -71,114 +70,60 @@
       <Sequence.Variables>
         <Variable x:TypeArguments="ui:GenericValue" Name="Div" />
       </Sequence.Variables>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Firefox" DisplayName="Attach Browser 'ACME WI4_Extract_TaxID'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="14c91b4816b04ad071632720a6ee0cbf" Selector="&lt;html app='firefox.exe' title='ACME System 1 -*' /&gt;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACME WI4_Extract_TaxID'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="64effd610f3082e73ab41fdca10cfd90" Selector="&lt;html title='ACME System 1 - Work Items' url='https://acme-test.uipath.com/work-items/*' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
             <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
-              <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
-                <ui:AnchorBase.Action>
-                  <ActivityAction x:TypeArguments="ui:Anchor">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
-                    </ActivityAction.Argument>
-                    <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap2010:WorkflowViewState.IdRef="GetOCRText_2">
-                      <ui:GetOCRText.OCREngine>
-                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
-                          <ActivityFunc.Argument>
-                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
-                          </ActivityFunc.Argument>
-                          <ui:MicrosoftOCR FilterRegion="{x:Null}" Text="{x:Null}" DisplayName="Microsoft OCR" ExtractWords="False" Image="[Image]" Language="en" Profile="Legacy" Scale="1" sap2010:WorkflowViewState.IdRef="MicrosoftOCR_1" />
-                        </ActivityFunc>
-                      </ui:GetOCRText.OCREngine>
-                      <ui:GetOCRText.Target>
-                        <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e474430b1fb461620e3eee4f2c7eac6b" Selector="&lt;webctrl tag='DIV' /&gt;" WaitForReady="INTERACTIVE">
-                          <ui:Target.ClippingRegion>
-                            <ui:Region Rectangle="56, 36, 95, 23" />
-                          </ui:Target.ClippingRegion>
-                        </ui:Target>
-                      </ui:GetOCRText.Target>
-                      <ui:GetOCRText.Text>
-                        <OutArgument x:TypeArguments="x:String">[out_TaxID]</OutArgument>
-                      </ui:GetOCRText.Text>
-                    </ui:GetOCRText>
-                  </ActivityAction>
-                </ui:AnchorBase.Action>
-                <ui:AnchorBase.AnchorProvider>
-                  <ui:WaitUiElementAppear FoundElement="{x:Null}" DisplayName="Find Element 'B'" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1" WaitActive="False" WaitVisible="False">
-                    <ui:WaitUiElementAppear.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="81d4bb1f26c714c861bfa2357307c5b8" Selector="&lt;webctrl idx='1' tag='B' /&gt;" WaitForReady="INTERACTIVE" />
-                    </ui:WaitUiElementAppear.Target>
-                  </ui:WaitUiElementAppear>
-                </ui:AnchorBase.AnchorProvider>
-              </ui:AnchorBase>
-              <ui:CommentOut DisplayName="Comment Out" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                <ui:CommentOut.Body>
-                  <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                    <ui:GetVisibleText WordsInfo="{x:Null}" DisplayName="Get Text TaxID" FormattedText="False" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
-                      <ui:GetVisibleText.Target>
-                        <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c9d77a7c5478d5654e2ba3e193b6816d" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='1' tag='DIV' /&gt;" WaitForReady="COMPLETE">
-                          <ui:Target.ClippingRegion>
-                            <ui:Region Rectangle="57, 34, 94, 29" />
-                          </ui:Target.ClippingRegion>
-                        </ui:Target>
-                      </ui:GetVisibleText.Target>
-                      <ui:GetVisibleText.Text>
-                        <OutArgument x:TypeArguments="x:String">[out_TaxID]</OutArgument>
-                      </ui:GetVisibleText.Text>
-                    </ui:GetVisibleText>
-                  </Sequence>
-                </ui:CommentOut.Body>
-              </ui:CommentOut>
+              <ui:GetVisibleText WordsInfo="{x:Null}" DisplayName="Get Text TaxID" FormattedText="False" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
+                <ui:GetVisibleText.Target>
+                  <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="912b57382fefc3e5bb0699affca65f57" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='1' tag='DIV' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.ClippingRegion>
+                      <ui:Region Rectangle="62, 37, 76, 20" />
+                    </ui:Target.ClippingRegion>
+                  </ui:Target>
+                </ui:GetVisibleText.Target>
+                <ui:GetVisibleText.Text>
+                  <OutArgument x:TypeArguments="x:String">[out_TaxID]</OutArgument>
+                </ui:GetVisibleText.Text>
+              </ui:GetVisibleText>
             </Sequence>
           </ActivityAction>
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
-    <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;out_TaxID in ExtractVendorInformation&quot;+ out_TaxID]" />
-    <sads:DebugSymbol.Symbol>d3xDOlxVc2Vyc1xmcnVzNzQxMTdcRGVza3RvcFwzLkdlbmVyYXRlWWVhcmx5UmVwb3J0XFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxcU3lzdGVtMVxTeXN0ZW0xX0V4dHJhY3RWZW5kb3JJbmZvcm1hdGlvbi54YW1sEkUDjgEOAgEBRgWLARACAQWMAQWMAZ8BAgECSgeKARkCAQaMAVyMAZwBAgEDSqsCSuYCAgEVUA2HARgCAQdRD3QfAgEJdQ+GAR8CAQhuE3IsAgETVxVqJQIBCnCmAXDJAQIBFGGOAWGrAQIBEmhBaEwCARBdG13xAQIBC126AV29AQIBD12LAV2UAQIBDV2eAV2iAQIBDA==</sads:DebugSymbol.Symbol>
+    <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;out_TaxID in ExtractVendorInformation&quot;+ out_TaxID.Trim()]" />
+    <sads:DebugSymbol.Symbol>d2lDOlxVc2Vyc1xmcnVzNzQxMTdcRG9jdW1lbnRzXFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxfMlxTeXN0ZW0xXFN5c3RlbTFfRXh0cmFjdFZlbmRvckluZm9ybWF0aW9uLnhhbWwKRANjDgIBAUUFYBACAQVhBWGmAQIBAkkHXxkCAQZhXGGjAQIBA0mmAkmJAwIBDE8NXBgCAQdQD1sjAgEIUogBUo4CAgELWTtZRgIBCQ==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="MicrosoftOCR_1" sap:VirtualizedContainerService.HintSize="200,22" />
-      <sap2010:ViewStateData Id="GetOCRText_2" sap:VirtualizedContainerService.HintSize="314,168" />
-      <sap2010:ViewStateData Id="WaitUiElementAppear_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="AnchorBase_1" sap:VirtualizedContainerService.HintSize="706,260" />
       <sap2010:ViewStateData Id="GetVisibleText_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,230">
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="336,230">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="CommentOut_1" sap:VirtualizedContainerService.HintSize="706,308" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="728,732">
+      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="436,500">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="742,878" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="764,1002">
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="436,61" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="458,725">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="474,61" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="786,1227">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_ExtractVendorInformation_1" sap:VirtualizedContainerService.HintSize="826,1307" />
+      <sap2010:ViewStateData Id="System1_ExtractVendorInformation_1" sap:VirtualizedContainerService.HintSize="498,805" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

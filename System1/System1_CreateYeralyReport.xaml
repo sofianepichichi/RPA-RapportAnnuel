@@ -1,4 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="System1_CreateYeralyReport" this:System1_CreateYeralyReport.in_Year="2018" this:System1_CreateYeralyReport.in_ReportsDownloadPath="C:\Users\frus74117\Desktop\3.GenerateYearlyReport\REF_ProcessusPerformer_Final\Download Reports\"
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="System1_CreateYeralyReport" this:System1_CreateYeralyReport.in_Year="2017" this:System1_CreateYeralyReport.in_ReportsDownloadPath="C:\Users\frus74117\Documents\REF_ProcessusPerformer_Final_2\Download Reports\"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
@@ -72,7 +72,6 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Crée le rapport Annuel du Vendeur &#xA;&#xA;Precondition : l'utilisateur est sur la page 'Download Monthly Report'. Le Vendor TaxID, l'année précédente sont récupérés au préalable.&#xA;Postcondition :  le rapport annuel est crée dans le dossier correspondant " DisplayName="System1_CreateYearlyReport" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -93,9 +92,9 @@
         <InArgument x:TypeArguments="sd:DataTable">[new DataTable]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into TaxID" EmptyField="True" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[&quot;[k(back)]&quot;+ in_TaxID]">
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into TaxID" EmptyField="True" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[in_TaxID.Trim]">
       <ui:TypeInto.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3ae7a304ca4f7949661d1f173f6a5894" Selector="&lt;html app='firefox.exe' title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f0df02ac92b8c5874bdeef7fa850b4c3" Selector="&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl id='vendorTaxID' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
       </ui:TypeInto.Target>
     </ui:TypeInto>
     <Assign sap2010:WorkflowViewState.IdRef="Assign_5">
@@ -118,7 +117,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="728f26daf51c0e751dce757cdfc572ef" Selector="&lt;html app='firefox.exe' title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl idx='2' parentid='searchForm' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4916b34f0b6d4a79822c39173e6ae042" Selector="&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl idx='2' parentid='searchForm' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
       </ui:Click.Target>
     </ui:Click>
     <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="ChooseYEAR" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
@@ -133,7 +132,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4710c9cafc97104cc0ab2097ebc95585" Selector="[&quot;&lt;html app='firefox.exe' title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl aaname='&quot;+in_Year+&quot;' parentid='searchForm' tag='A' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="5dada754e811b2be8ae677c87c150279" Selector="[&quot;&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl aaname='&quot;+in_Year+&quot;' parentid='searchForm' tag='A' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
       </ui:Click.Target>
     </ui:Click>
     <Assign DisplayName="Assign le tab des Mois" sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -163,7 +162,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="26ec3e52d3d58f4736f37cd5bb4d9ef9" Selector="&lt;html app='firefox.exe' title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl idx='1' parentid='searchForm' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7c8cc904eaa4a7b8f8834ee19c06db3a" Selector="&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl omit:aaname='---' parentid='searchForm' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
               </ui:Click.Target>
             </ui:Click>
             <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click each Month" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
@@ -178,11 +177,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target Element="{x:Null}" InformativeScreenshot="6e5b13b3cdf61703fed08d5d0a6a1a32" Selector="[&quot;&lt;html app='firefox.exe' title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl aaname='&quot;+month.ToString+&quot;' parentid='searchForm' tag='A' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="INTERACTIVE">
-                  <ui:Target.ClippingRegion>
-                    <ui:Region Rectangle="14, 30, 107, 24" />
-                  </ui:Target.ClippingRegion>
-                </ui:Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="491b499d9c3ebb66c16b4807a1c928d1" Selector="[&quot;&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl aaname='&quot;+month.ToString+&quot;' parentid='searchForm' tag='A' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
               </ui:Click.Target>
             </ui:Click>
             <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Download Report'" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
@@ -197,26 +192,31 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="afc9ef878602c0ff3f7ac327436556f8" Selector="&lt;html app='firefox.exe' title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl id='buttonDownload' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d7d8e4c6239e2ba4d03b60e9fb871f03" Selector="&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl id='buttonDownload' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
               </ui:Click.Target>
             </ui:Click>
             <ui:UiElementExists DisplayName="Pas de Report trouvé" Exists="[ReportNotFound]" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target Element="{x:Null}" InformativeScreenshot="dcd4dcd3b30552d030a4408085f0efdc" Selector="&lt;html app='firefox.exe' title='ACME System 1 - Reports - Download Monthly Report' /&gt;&lt;webctrl css-selector='body&amp;gt;div' tag='DIV' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE">
-                  <ui:Target.ClippingRegion>
-                    <ui:Region Rectangle="392, 129, 403, 128" />
-                  </ui:Target.ClippingRegion>
-                </ui:Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fdc8fe496e49e0baeaae456e9d379243" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Message de la page Web' /&gt;&lt;wnd ctrlid='65535' title='No report found for this vendor / month / year that you have spe*' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
             <If Condition="[ReportNotFound]" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey" EmptyField="False" Key="enter" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
-                  <ui:SendHotkey.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
-                  </ui:SendHotkey.Target>
-                  <sap2010:WorkflowViewState.IdRef>SendHotkey_1</sap2010:WorkflowViewState.IdRef>
-                </ui:SendHotkey>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click OK de la pop-up fenetre" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="6ad4c09d73fa34af5b5a3687ee8ff642" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Message de la page Web' /&gt;&lt;wnd ctrlid='2' title='OK' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
               </If.Then>
               <If.Else>
                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -290,6 +290,7 @@
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="646e8e3e737e92d227cc0c564fd3944a" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Enregistrer sous' /&gt;&lt;wnd ctrlid='1' title='&amp;amp;Enregistrer' /&gt;" WaitForReady="INTERACTIVE" />
                     </ui:Click.Target>
                   </ui:Click>
+                  <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;helo:&quot; + ReportFilePath]" />
                   <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dt_MonthlyReport]" Delimitator="Comma" DisplayName="Read  MonthlyReport.CSV" FilePath="[ReportFilePath]" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
                   <ui:MergeDataTable Destination="[dt_YearlyReport]" DisplayName="Fusionner MonthlyReport" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[dt_MonthlyReport]" />
                   <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" DisplayName="On Element Appear de la pop Up de téléchargement" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False" WaitActive="False" WaitVisible="True">
@@ -333,7 +334,7 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <sads:DebugSymbol.Symbol>d3ZDOlxVc2Vyc1xmcnVzNzQxMTdcRGVza3RvcFwzLkdlbmVyYXRlWWVhcmx5UmVwb3J0XFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxcU3lzdGVtMVxTeXN0ZW0xX0NyZWF0ZVllcmFseVJlcG9ydC54YW1sUwG2AQGXAgEDAXgBfQECTgPRAg4CAQFXBVebAQIBaFgFXw4CAWRgBWQTAgFgZQVsDgIBW20FexACAVh8BYoBEAIBVIsBBZIBDgIBUJMBBc8CEgIBAldcV5gBAgFpXTRdQwIBZ1o1WkYCAWVimAFikQICAWNglAJgtwICAWFqMGrHAQIBXmcxZ0ECAVx5gwF5mwICAVp5pgJ5rAICAVmIAYMBiAG7AgIBVogBxgKIAcwCAgFVkAEykAGtAQIBU40BM40BOwIBUZMBlgGTAaABAgFOmQELzAIWAgEDmgENqAEYAgFLqQENuwEYAgFHvAENygEYAgFEywEN0wEiAgE/1AENwgISAgEPwwINygIWAgELywINywLxAQIBBKYBiwGmAaMCAgFNpgGuAqYBtAICAUy1AXG1AbACAgFJtQG7ArUBwQICAUjIAYsByAGZAgIBRsgBpALIAaoCAgFFzQFxzQGHAgIBQ80BkgLNAZgCAgFCywFLywFdAgFA1AEb1AEtAgEQ1gER2wEhAgE93gERwAIcAgESyAI4yAKrAQIBDsUCOcUCTwIBDMsCxAHLAsgBAgEKywI4ywJLAgEIywKuAcsCtgECAQfLAtYBywLuAQIBBdYBwQHWAcgBAgE+4gET8AEeAgE78QET/wEeAgE5gAIThwIhAgE1iAITjwIcAgEvkAITkAJ/AgEskQITlQIhAgEolgITpAIeAgEmpQITpQLeAQIBIaYCE6YC1wECARynAhO+AioCARa/AhO/AqIBAgET7gGmAe4B6QMCATz9AaYB/QGoAgIBOoUCP4UCTAIBNoICpgGCAv8CAgE4jQI+jQJzAgEyigI/igJPAgEwkAJqkAJ8AgEtkwKmAZMChwMCASuRAqoCkQK8AgIBKaICpgGiAqMCAgEnpQJBpQJVAgEkpQKZAaUCqwECASKmAjKmAkUCAR+mAsABpgLUAQIBHakCF7kCIgIBGacC3wGnAuYBAgEXvAKmAbwC/gMCARi/Ao0BvwKfAQIBFKoCGbgCJAIBGrYCrAG2AroDAgEb</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2NDOlxVc2Vyc1xmcnVzNzQxMTdcRG9jdW1lbnRzXFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxfMlxTeXN0ZW0xXFN5c3RlbTFfQ3JlYXRlWWVyYWx5UmVwb3J0LnhhbWxVAbYBAYQCAQMBeAF9AQJNA9ICDgIBAVYFVpsBAgFrVwVeDgIBZ18FYxMCAWNkBWsOAgFebAV6EAIBW3sFiQEQAgFXigEFkQEOAgFTkgEF0AISAgECVlxWmAECAWxcNFxDAgFqWTVZRgIBaGGYAWGQAgIBZl+UAl+lAgIBZGkwaccBAgFhZjFmQQIBX3iDAXiJAgIBXXiUAniaAgIBXIcBgwGHAakCAgFZhwG0AocBugICAViPATKPAa0BAgFWjAEzjAE7AgFUkgGWAZIBoAECAVGYAQvNAhYCAQOZAQ2nARgCAU6oAQ22ARgCAUq3AQ3FARgCAUfGAQ3KASICAULLAQ3DAhICAQ/EAg3LAhYCAQvMAg3MAvEBAgEEpQGLAaUBmwICAVClAaYCpQGsAgIBT7QBiwG0AbgCAgFMtAHDArQByQICAUvDAYsBwwGHAgIBScMBkgLDAZgCAgFIyAGLAcgBvwICAUbIAcoCyAHQAgIBRcYBS8YBXQIBQ8sBG8sBLQIBEM0BEdsBHAIBQN4BEcECHAIBEskCOMkCqwECAQ7GAjnGAk8CAQzMAsQBzALIAQIBCswCOMwCSwIBCMwCrgHMArYBAgEHzALWAcwC7gECAQXZAaQB2QGVAgIBQeIBE/ABHgIBPvEBE/8BHgIBPIACE4cCIQIBOIgCE48CHAIBMpACE5ACfwIBL5ECE5UCIQIBK5YCE6QCHgIBKaUCE6UCkwECASamAhOmAt4BAgEhpwITpwLXAQIBHKgCE78CKgIBFsACE8ACogECARPuAaYB7gHpAwIBP/0BpgH9AagCAgE9hQI/hQJMAgE5ggKmAYIC/wICATuNAj6NAnMCATWKAj+KAk8CATOQAmqQAnwCATCTAqYBkwKHAwIBLpECqgKRArwCAgEsogKmAaICowICASqlAmqlApABAgEnpgJBpgJVAgEkpgKZAaYCqwECASKnAjKnAkUCAR+nAsABpwLUAQIBHaoCF7oCIgIBGagC3wGoAuYBAgEXvQKmAb0C/gMCARjAAo0BwAKfAQIBFKsCGbkCJAIBGrcCrAG3AroDAgEb</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -348,7 +349,7 @@
       <sap2010:ViewStateData Id="Click_2" sap:VirtualizedContainerService.HintSize="775,106" />
       <sap2010:ViewStateData Id="Click_3" sap:VirtualizedContainerService.HintSize="775,106" />
       <sap2010:ViewStateData Id="UiElementExists_1" sap:VirtualizedContainerService.HintSize="775,106" />
-      <sap2010:ViewStateData Id="SendHotkey_1" sap:VirtualizedContainerService.HintSize="314,116" />
+      <sap2010:ViewStateData Id="Click_4" sap:VirtualizedContainerService.HintSize="314,106" />
       <sap2010:ViewStateData Id="Click_5" sap:VirtualizedContainerService.HintSize="414,106" />
       <sap2010:ViewStateData Id="Click_6" sap:VirtualizedContainerService.HintSize="414,106" />
       <sap2010:ViewStateData Id="GetValue_1" sap:VirtualizedContainerService.HintSize="414,106" />
@@ -356,6 +357,7 @@
       <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="414,61" />
       <sap2010:ViewStateData Id="TypeInto_2" sap:VirtualizedContainerService.HintSize="414,134" />
       <sap2010:ViewStateData Id="Click_7" sap:VirtualizedContainerService.HintSize="414,106" />
+      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="414,61" />
       <sap2010:ViewStateData Id="ReadCsvFile_1" sap:VirtualizedContainerService.HintSize="414,59" />
       <sap2010:ViewStateData Id="MergeDataTable_1" sap:VirtualizedContainerService.HintSize="414,22" />
       <sap2010:ViewStateData Id="Click_8" sap:VirtualizedContainerService.HintSize="314,106" />
@@ -368,25 +370,25 @@
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="OnUiElementAppear_1" sap:VirtualizedContainerService.HintSize="414,406" />
       <sap2010:ViewStateData Id="Delete_1" sap:VirtualizedContainerService.HintSize="414,22" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="436,1712">
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="436,1813">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="775,1860" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="775,1961" />
       <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="775,60" />
       <sap2010:ViewStateData Id="WriteRange_1" sap:VirtualizedContainerService.HintSize="775,115" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="797,2823">
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="797,2924">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="813,2957" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="835,4020">
+      <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="813,3058" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="835,4121">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -394,7 +396,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_CreateYeralyReport_1" sap:VirtualizedContainerService.HintSize="875,4100" />
+      <sap2010:ViewStateData Id="System1_CreateYeralyReport_1" sap:VirtualizedContainerService.HintSize="875,4201">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

@@ -66,15 +66,15 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="22644f166f1537672c4622dafb586b25" Selector="&lt;html app='firefox.exe' title='ACME System 1 - Dashboard' /&gt;&lt;webctrl aaname='*Work Items' parentid='dashmenu' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="afc8123c27e49b41c8295d7e79f31ac4" Selector="&lt;html title='ACME System 1 - Dashboard' /&gt;&lt;webctrl aaname='Work Items' parentid='dashmenu' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
       </ui:Click.Target>
     </ui:Click>
-    <sads:DebugSymbol.Symbol>d3dDOlxVc2Vyc1xmcnVzNzQxMTdcRGVza3RvcFwzLkdlbmVyYXRlWWVhcmx5UmVwb3J0XFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxcU3lzdGVtMVxTeXN0ZW0xX05hdmlnYXRlVG9fV29ya0l0ZW0ueGFtbAM4A0kOAgEBOQVHEAIBAkWYAUWjAgIBAw==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d4ABQzpcVXNlcnNcQ2hvS2FcRGVza3RvcFxSUEFcQ2VydGlmIE5pdmVhdTNcMy5HZW5lcmF0ZVllYXJseVJlcG9ydFxSRUZfUHJvY2Vzc3VzUGVyZm9ybWVyXFN5c3RlbTFcU3lzdGVtMV9OYXZpZ2F0ZVRvX1dvcmtJdGVtLnhhbWwDOANJDgIBATkFRxACAQJFmAFFkAICAQM=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,317">
+      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="314.4,107.2" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336.8,324">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -82,7 +82,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_NavigateTo_WorkItem_1" sap:VirtualizedContainerService.HintSize="376,397" />
+      <sap2010:ViewStateData Id="System1_NavigateTo_WorkItem_1" sap:VirtualizedContainerService.HintSize="376.8,404" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

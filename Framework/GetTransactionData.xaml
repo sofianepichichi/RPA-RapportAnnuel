@@ -74,11 +74,12 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Description: Get data from spreadsheets, databases, email, web API or UiPath server queues. If no new data, set out_TransactionItem to Nothing. &#xA;&#xA;For a linear process (not repetitive), set out_TransactionItem only for in_TransactionNumber 1 - first and only transaction. &#xA;&#xA;If the process is repeatable, set io_TransactionData once for in_TransactionNumber 1, then assign a new out_TransactionItem by using the in_TransactionNumber to index io_TransactionData. Be aware that, at the end of the io_TransactionData collection, it is your responsibility to set out_TransactionItem to Nothing, thus ending the process." DisplayName="GetTransactionData" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="C:\Users\frus74117\Desktop\3.GenerateYearlyReport\REF_ProcessusPerformer_Final\Data\AllWI4.xlsx" Name="FilePathWI4Data" />
+      <Variable x:TypeArguments="x:String" Default="Data\AllWI4.xlsx" Name="FilePathWI4Data" />
       <Variable x:TypeArguments="x:Int32" Name="WI4Size" />
       <Variable x:TypeArguments="sd:DataRow" Name="WI4List" />
     </Sequence.Variables>
@@ -123,13 +124,13 @@
         </Assign>
       </If.Else>
     </If>
-    <sads:DebugSymbol.Symbol>d3BDOlxVc2Vyc1xmcnVzNzQxMTdcRGVza3RvcFwzLkdlbmVyYXRlWWVhcmx5UmVwb3J0XFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxcRnJhbWV3b3JrXEdldFRyYW5zYWN0aW9uRGF0YS54YW1sHE8Dfw4CAQFRNFGVAQIBAlUFVdUBAgEjVgVdDgIBH14FXqgBAgEcXwV9CgIBA1VAVVYCASdVqQFVsQECASZVvwFV0gECASRbL1tOAgEiWDBYOQIBIF5cXqUBAgEdXxNfOAIBBGEJcRQCAQt0CXsSAgEHYgtmGwIBF2cLbhQCARJvC2/BAQIBD3ALcJsBAgEMeTR5PQIBCnY1dkgCAQhkN2RKAgEaYqMBYtQBAgEZYk5iVAIBGGw1bE4CARVpNmlMAgETb2JvvgECARBwYnCYAQIBDQ==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d3lDOlxVc2Vyc1xDaG9LYVxEZXNrdG9wXFJQQVxDZXJ0aWYgTml2ZWF1M1wzLkdlbmVyYXRlWWVhcmx5UmVwb3J0XFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJcRnJhbWV3b3JrXEdldFRyYW5zYWN0aW9uRGF0YS54YW1sHFADgAEOAgEBUjRSRgIBAlYFVtUBAgEjVwVeDgIBH18FX6gBAgEcYAV+CgIBA1ZAVlYCASdWqQFWsQECASZWvwFW0gECASRcL1xOAgEiWTBZOQIBIF9cX6UBAgEdYBNgOAIBBGIJchQCAQt1CXwSAgEHYwtnGwIBF2gLbxQCARJwC3DBAQIBD3ELcZsBAgEMejR6PQIBCnc1d0gCAQhlN2VKAgEaY6MBY9QBAgEZY05jVAIBGG01bU4CARVqNmpMAgETcGJwvgECARBxYnGYAQIBDQ==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="ReadRange_1" sap:VirtualizedContainerService.HintSize="605,87" />
-      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="605,60" />
-      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="605,61" />
+      <sap2010:ViewStateData Id="ReadRange_1" sap:VirtualizedContainerService.HintSize="604.8,88" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="604.8,60" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="604.8,62.4" />
       <sap2010:ViewStateData Id="GetRowItem_1" sap:VirtualizedContainerService.HintSize="314.4,64.8" />
       <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="314.4,60" />
       <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="314.4,62.4" />
@@ -144,7 +145,7 @@
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="243.2,60" />
       <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="604.8,688" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="627,1302">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="627.2,1315.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,7 +153,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="GetTransactionData_1" sap:VirtualizedContainerService.HintSize="667,1382" />
+      <sap2010:ViewStateData Id="GetTransactionData_1" sap:VirtualizedContainerService.HintSize="667.2,1395.2" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

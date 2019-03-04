@@ -66,34 +66,42 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.Data.Entity</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="System1_ExtractWI4" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence DisplayName="Data Scraping" sap2010:WorkflowViewState.IdRef="Sequence_2">
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Firefox" DisplayName="Attach Browser 'WorkItem'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="c73e68cd29201cbb9a91108d2bdebb90" Selector="&lt;html app='firefox.exe' title='ACME System 1 - Work Items' /&gt;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'WorkItem'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="c7301a2decf88e0c6b418fd26409a55d" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <ui:ExtractData ContinueOnError="True" DataTable="[out_dt_AllWorkItems]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="0" NextLinkSelector="&lt;webctrl aaname='&amp;gt;' tag='A' /&gt;">
-              <ui:ExtractData.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="2fd0250f97fef9277a86c7ec22414f19" Selector="&lt;webctrl tag='TABLE' /&gt;" WaitForReady="COMPLETE" />
-              </ui:ExtractData.Target>
-            </ui:ExtractData>
+            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <ui:ExtractData ContinueOnError="True" DataTable="[out_dt_AllWorkItems]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data dt_AllWorkItems" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="0" NextLinkSelector="&lt;webctrl aaname='&amp;gt;' tag='A' /&gt;">
+                <ui:ExtractData.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="96e64bcfe42739afbebd55a07814fa9d" Selector="&lt;webctrl tag='TABLE' /&gt;" WaitForReady="COMPLETE" />
+                </ui:ExtractData.Target>
+              </ui:ExtractData>
+            </Sequence>
           </ActivityAction>
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
-    <ui:WriteRange AddHeaders="True" DataTable="[out_dt_AllWorkItems]" DisplayName="Write dt_AllWI" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="C:\Users\frus74117\Desktop\3.GenerateYearlyReport\REF_ProcessusPerformer_Final\Data\AllWI.xlsx" />
-    <sads:DebugSymbol.Symbol>d3FDOlxVc2Vyc1xmcnVzNzQxMTdcRGVza3RvcFwzLkdlbmVyYXRlWWVhcmx5UmVwb3J0XFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxcU3lzdGVtMVxTeXN0ZW0xX0V4dHJhY3RfQWxsV0kueGFtbBFIA1sOAgEBSQVYEAIBCFkFWakCAgECSgdXGQIBCVm0AVm4AQIBB1kwWUcCAQVZngFZpgECAQRZxgFZpgICAQNKnQJK4gICARNQDVQeAgEKULYCULkCAgESUqABUr8BAgERUGpQbwIBEFAtUDMCAQ9QPlBVAgENUMsCUPgCAgEMUK4BUPIBAgEL</sads:DebugSymbol.Symbol>
+    <ui:WriteRange AddHeaders="True" DataTable="[out_dt_AllWorkItems]" DisplayName="Write dt_AllWI" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="C:\Users\frus74117\Documents\REF_ProcessusPerformer_Final_2\Data\AllWI.xlsx" />
+    <sads:DebugSymbol.Symbol>d15DOlxVc2Vyc1xmcnVzNzQxMTdcRG9jdW1lbnRzXFJFRl9Qcm9jZXNzdXNQZXJmb3JtZXJfRmluYWxfMlxTeXN0ZW0xXFN5c3RlbTFfRXh0cmFjdF9BbGxXSS54YW1sEkcDXA4CAQFIBVkQAgEIWgValgICAQJJB1gZAgEJWrQBWrgBAgEHWjBaRwIBBVqeAVqmAQIBBFrGAVqTAgIBA0mYAknLAgIBFE8NVRgCAQpQD1QgAgELUMACUMMCAgETUqIBUsEBAgESUGxQcQIBEVAvUDUCARBQQFBXAgEOUNUCUIIDAgENULgBUPwBAgEM</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="ExtractData_2" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,252" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="436,376">
+      <sap2010:ViewStateData Id="ExtractData_1" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="436,500">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -101,14 +109,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="WriteRange_2" sap:VirtualizedContainerService.HintSize="436,115" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="458,655">
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="458,779">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_ExtractWI4_1" sap:VirtualizedContainerService.HintSize="498,735" />
+      <sap2010:ViewStateData Id="System1_ExtractWI4_1" sap:VirtualizedContainerService.HintSize="498,859" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
